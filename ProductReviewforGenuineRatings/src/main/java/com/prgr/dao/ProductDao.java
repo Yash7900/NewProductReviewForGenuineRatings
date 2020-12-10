@@ -12,6 +12,7 @@ public interface ProductDao {
 	public Product deleteProduct(int product);
 	public Map<Product,Product> compareProduct(int productId1,int productId2 );
 	public List<Product> viewAllProduct();
-	public Map<Product,List<Review>> viewSingleProduct(int prodID);
+	public Map<Product,List<Review>> viewSingleProductWithReview(int prodID);
+	public Product viewSingleProduct(int prodID);
 	public List<Product> viewBasedOnCategory(String Category);
 }

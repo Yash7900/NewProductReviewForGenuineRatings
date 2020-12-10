@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
-
-
+import com.prgr.exception.InvalidInputException;
 import com.prgr.model.Person;
 import com.prgr.utility.JPAUtility1;
 
@@ -18,6 +16,15 @@ public class PersonDaoImpl implements PersonDao{
 		entityManager=JPAUtility1.getEntityManager();
 	}
 	public Person addPerson(Person person) {
+		try{
+			if(person.getPersonId()==0 || person.getFirstName()==null || person.getLastName()==null || person.getEmailId()==null || person.getPassword()==null){
+				throw new InvalidInputException("Invalid Input entered");
+			}
+		}
+		catch(InvalidInputException ex){
+			ex.printStackTrace();
+			
+		}
 		entityManager.getTransaction().begin();
 		entityManager.persist(person);
 		entityManager.getTransaction().commit();
@@ -25,7 +32,15 @@ public class PersonDaoImpl implements PersonDao{
 	}
 
 public Person updatePerson(Person person) {
+	try{
+		if(person.getPersonId()==0 || person.getFirstName()==null || person.getLastName()==null || person.getEmailId()==null || person.getPassword()==null){
+			throw new InvalidInputException("Invalid Input entered");
+		}
+	}
+	catch(InvalidInputException ex){
+		ex.printStackTrace();
 		
+	}
 		entityManager.getTransaction().begin();
 		entityManager.merge(person);
 		entityManager.getTransaction().commit();
@@ -38,6 +53,15 @@ public Person updatePerson(Person person) {
 		return list;
 	}
 	public Person viewPerson(int personId) {
+		try{
+			if(personId==0){
+				throw new InvalidInputException("Invalid Input entered");
+			}
+		}
+		catch(InvalidInputException ex){
+			ex.printStackTrace();
+			
+		}
 		Person person=entityManager.find(Person.class, personId);
 		return person;
 	}

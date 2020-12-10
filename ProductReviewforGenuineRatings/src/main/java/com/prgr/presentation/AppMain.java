@@ -19,7 +19,7 @@ import com.prgr.service.ReviewServiceImpl;
 
 public class AppMain {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		PersonService pservice = new PersonServiceImpl();
 		ProductService productService = new ProductServiceImpl();
 		ReviewService reviewService = new ReviewServiceImpl();
@@ -28,7 +28,7 @@ public class AppMain {
 		Scanner scanner = new Scanner(System.in); /* Integer input */
 		Scanner scannerString = new Scanner(System.in); /* String input */
 		Scanner option = new Scanner(System.in); /* option selection */
-
+		Scanner scannerInt=new Scanner(System.in);
 		/* ----- Selecting Role------- */
 		System.out.println("Product Review For Genuine Rating");
 		System.out.println("----------------------------------");
@@ -65,22 +65,23 @@ public class AppMain {
 							System.out.println("Add Product Page");
 							System.out.println("Enter product details: ");
 							System.out.println("Product Id:");
-							int productId = scanner.nextInt();
+							int productId = scannerInt.nextInt();
 							System.out.println("Product Name: ");
 							String productName = scanner.next();
 							System.out.println("Product Category: ");
-							String productCategory = scanner.next();
+							String productCategory = scannerString.next();
 							System.out.println("Seller Name");
 							String sellerName = scanner.next();
 							System.out.println("Product Description");
-							String productDescription = scanner.nextLine();
+							String productDescription = scannerString.nextLine();
 							scanner.next();
 							System.out.println("Product Price: ");
-							Long productPrice = scanner.nextLong();
+							Long productPrice = scannerInt.nextLong();
 							ProductTo productTo = new ProductTo(productId,
 									productName, productCategory, sellerName,
 									productDescription, productPrice);
 							productService.addProduct(productTo);
+							System.out.println("Product Added Successfully");
 							break;
 						case 2:
 							System.out
@@ -120,27 +121,29 @@ public class AppMain {
 							switch (updateChoice) {
 							case 1:
 								System.out.println("Enter ID of the product to Update: ");
-								int productId1 = scanner.nextInt();
+								int productId1 = scannerInt.nextInt();
 								System.out.println("Product Name: ");
 								String productName1 = scanner.next();
 								System.out.println("Product Category: ");
-								String productCategory1 = scanner.next();
+								String productCategory1 = scannerString.next();
 								System.out.println("Seller Name");
 								String sellerName1 = scanner.next();
 								System.out.println("Product Description");
-								String productDescription1 = scanner.next();
-								// scanner.next();
+								String productDescription1 = scannerString.nextLine();
+								scanner.next();
 								System.out.println("Product Price: ");
-								Long productPrice1 = scanner.nextLong();
+								Long productPrice1 = scannerInt.nextLong();
 								ProductTo productUpdateTo = new ProductTo(productId1,productName1, productCategory1,
 										sellerName1, productDescription1, productPrice1);
 
 								productService.updateProduct(productUpdateTo);
+								System.out.println("Product Updated Successfully");
 								break;
 							case 2:
 								System.out.println("Enter ID of the product to delete: ");
 								int productId2 = scanner.nextInt();
 								productService.deleteProduct(productId2);
+								System.out.println("Proud deleted Successfully");
 								break;
 							
 							}
@@ -177,6 +180,7 @@ public class AppMain {
 
 		/* --------------------------User Page----------------------------- */
 		case 2:
+			
 			System.out.println("User Page");
 			System.out.println("1.Registration\n2.Login\n3.Exit");
 			int userOption = option.nextInt();
@@ -187,25 +191,25 @@ public class AppMain {
 						.println("-----------------------------------------------------------");
 				System.out.println("Enter the User Details");
 				System.out.println("Person Id:");
-				int personId = scanner.nextInt();
-				System.out.print("First Name:  ");
-				String firstName = scanner.nextLine();
-				System.out.print("Last Name:  ");
-				String lastName = scanner.nextLine();
+				int personId = scannerInt.nextInt();
+				System.out.println("First Name:  ");
+				String firstName = scanner.next();
+				System.out.println("Last Name:  ");
+				String lastName = scannerString.next();
 				System.out.println("Address: ");
 				String userAddress = scanner.nextLine();
-				// scanner.next();
+				scanner.next();
 				System.out.println("Phone No: ");
-				Long phoneNumber = scanner.nextLong();
+				Long phoneNumber = scannerString.nextLong();
 				System.out.println("Enter the email id");
 				String emailId = scanner.next();
 				System.out.println("Create the new password");
-				scanner.nextLine();
-				String password = scanner.nextLine();
+				scanner.next();
+				String password = scannerInt.nextLine();
 				PersonTo personTo = new PersonTo(personId, firstName, lastName,
 						userAddress, phoneNumber, emailId, password, "User");
 				pservice.addPerson(personTo);
-				break;
+				System.out.println("Regisration Successfully Done!");
 			case 2:
 				System.out.println("User Login Page");
 				String loginEmailId,
@@ -326,13 +330,14 @@ public class AppMain {
 					while (true);
 				}
 				else{
-					System.out.println("Invalid Credentials.");
+					//System.out.println("Invalid Credentials.");
 				}
 			case 3:
 				System.exit(0);
 			}
+			
 			break;
-
+			
 		case 3:
 			System.exit(0);
 

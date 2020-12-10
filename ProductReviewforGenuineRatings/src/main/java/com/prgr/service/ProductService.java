@@ -10,9 +10,10 @@ import com.prgr.model.Review;
 public interface ProductService {
 	public Product addProduct(ProductTo productTo);
 	public Product updateProduct(ProductTo productTo);
-	 public int deleteProduct(int product);
+	 public Product deleteProduct(int product);
 	 public Map<Product,Product> compareProduct(int productId1,int productId2 );
 	 public List<Product> viewAllProduct();
-	 public Map<Product,List<Review>> viewSingleProduct(int prodId);
+	 public Map<Product,List<Review>> viewSingleProductWithReview(int prodId);
+	 public Product viewSingleProduct(int productId);
 	 public List<Product> viewBasedOnCategory(String Category);
 }

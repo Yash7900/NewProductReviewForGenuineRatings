@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
 		productDao=new ProductDaoImpl();
 	}
 	public Product addProduct(ProductTo productTo) {
-		Product product=new Product(productTo.getProductId(),productTo.getProductName(),productTo.getCategory(),productTo.getDescription(),productTo.getSellerName(),productTo.getPrice());
+		Product product=new Product(productTo.getProductId(),productTo.getProductName(),productTo.getCategory(),productTo.getSellerName(),productTo.getDescription(),productTo.getPrice());
 		productDao.addProduct(product);
 		return product;
 	}
@@ -27,9 +27,9 @@ public class ProductServiceImpl implements ProductService {
 		return product;
 	}
 
-	public int deleteProduct(int product) {
+	public Product deleteProduct(int product) {
 		productDao.deleteProduct(product);
-		return product;
+		return productDao.deleteProduct(product);
 	}
 	public List<Product> viewAllProduct() {
 
@@ -37,8 +37,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 
-	public Map<Product,List<Review>> viewSingleProduct(int prodId) {
-		Map<Product,List<Review>> product=productDao.viewSingleProduct(prodId);
+	public Map<Product,List<Review>> viewSingleProductWithReview(int prodId) {
+		Map<Product,List<Review>> product=productDao.viewSingleProductWithReview(prodId);
 		return product;
 	}
 	public List<Product> viewBasedOnCategory(String Category) {
@@ -48,5 +48,10 @@ public class ProductServiceImpl implements ProductService {
 	public Map<Product, Product> compareProduct(int productId1, int productId2) {
 		// TODO Auto-generated method stub
 		return productDao.compareProduct(productId1, productId2);
+	}
+	@Override
+	public Product viewSingleProduct(int productId) {
+		// TODO Auto-generated method stub
+		return productDao.viewSingleProduct(productId);
 	}
 }
