@@ -5,13 +5,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
+
 import com.prgr.exception.InvalidInputException;
 import com.prgr.model.Person;
 import com.prgr.utility.JPAUtility1;
 
 public class PersonDaoImpl implements PersonDao{
 	private EntityManager entityManager;
-	
+	final static Logger logger = Logger.getLogger(PersonDaoImpl.class);
 	public PersonDaoImpl(){
 		entityManager=JPAUtility1.getEntityManager();
 	}
@@ -25,6 +27,7 @@ public class PersonDaoImpl implements PersonDao{
 			ex.printStackTrace();
 			
 		}
+		Logger.getLogger("addPerson into database.");
 		entityManager.getTransaction().begin();
 		entityManager.persist(person);
 		entityManager.getTransaction().commit();

@@ -14,7 +14,7 @@ import com.prgr.utility.JPAUtility1;
 
 public class ProductDaoImpl implements ProductDao {
 	private EntityManager entityManager;
-	private ReviewDaoImpl reviewDao=new ReviewDaoImpl();
+	private ReviewDao reviewDao=new ReviewDaoImpl();
 	public ProductDaoImpl() {
 		entityManager = JPAUtility1.getEntityManager();
 	}
