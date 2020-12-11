@@ -68,6 +68,7 @@ public class ProductDaoImpl implements ProductDao {
 		 return product1;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Product> viewAllProduct() {
 		Query query=entityManager.createQuery("from Product");
 		List<Product> list=query.getResultList();

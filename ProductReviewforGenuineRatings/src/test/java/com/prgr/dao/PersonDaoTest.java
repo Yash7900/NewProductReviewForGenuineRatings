@@ -6,11 +6,13 @@ import static org.junit.Assert.assertNotNull;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.prgr.exception.InvalidInputException;
 import com.prgr.model.Person;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PersonDaoTest {
 	PersonDao persondaoimpl;
 
@@ -29,7 +31,7 @@ public class PersonDaoTest {
 	@Test
 	public void testAddPerson() throws InvalidInputException {
 		Person personObj = new Person();
-		personObj.setPersonId(15);
+		personObj.setPersonId(17);
 		personObj.setFirstName("Abc");
 		personObj.setLastName("xyz");
 		personObj.setAddress("Dadar");
@@ -45,6 +47,7 @@ public class PersonDaoTest {
 	public void testUpdatePerson() throws InvalidInputException
 	{
 		Person personObj = new Person();
+		personObj.setPersonId(17);
 		personObj.setFirstName("Abc");
 		personObj.setLastName("xyz");
 		personObj.setEmailId("Abc123@gmail.com");

@@ -30,6 +30,7 @@ public class FeedbackDaoImpl implements FeedbackDao{
 		return fb;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Feedback> viewAllFeedback() {
 		Query query=entityManager.createQuery("from Feedback");
 		List<Feedback> feedbackList=query.getResultList();

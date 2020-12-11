@@ -323,6 +323,7 @@ public class ProductMain {
 							String password1= scannerString.nextLine();
 							PersonTo person1 = new PersonTo(personId1,firstName1, lastName1, userAddress1, phoneNumber1, emailId1, password1, "User");
 							pservice.updatePerson(person1);
+							System.out.println("Details got Updated!");
 							break;
 						case 5:
 							System.out.println("Feedback Page");

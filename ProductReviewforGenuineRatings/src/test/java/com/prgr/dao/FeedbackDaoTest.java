@@ -38,7 +38,7 @@ FeedbackDao feedbackDao;
 	}
 	@Test
 	public void testdeleteFeedback(){
-		Feedback feedback=feedbackDao.deleteFeedback(2);
+		Feedback feedback=feedbackDao.deleteFeedback(4);
 		assertNotNull(feedback.getFeedbackId());
 		//assertNotSame("Good System",feedback.getFeedbackDescription());
 		

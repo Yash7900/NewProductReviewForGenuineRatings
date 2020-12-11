@@ -24,7 +24,6 @@ public class FeedbackServiceTest {
 	@Test
 	public void testAddFeedback() {
 		FeedbackTo feedbackObj = new FeedbackTo();
-		//feedbackObj.setId("1");
 		feedbackObj.setFeedbackAbout("System");
 		feedbackObj.setFeedbackDescription("Good");
 		Feedback feedback = feedbackSevice.addFeedback(feedbackObj);

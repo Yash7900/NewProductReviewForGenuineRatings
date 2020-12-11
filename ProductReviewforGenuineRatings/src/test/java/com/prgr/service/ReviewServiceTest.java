@@ -1,11 +1,9 @@
 package com.prgr.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.prgr.model.Review;
@@ -31,12 +29,12 @@ public class ReviewServiceTest {
 		assertEquals(5, review.getUserId());
 		
 	}
-
+	@Ignore
 	@Test
 	public void testDeleteReview() {
 		// fail("Not yet implemented");
 	}
-
+	@Ignore
 	@Test
 	public void testViewAllRatings() {
 		//List<Review> reviews = reviewServiceImpl.viewAllReviewRating(2300);

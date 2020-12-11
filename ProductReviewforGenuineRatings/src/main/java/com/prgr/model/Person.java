@@ -2,8 +2,6 @@ package com.prgr.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -117,9 +115,9 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [personId=" + personId + ", firstName=" + firstName
+		return "Person details personId=" + personId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
-				+ ", password=" + password + ", role=" + role + "]";
+				+ ", password=" + password + ", role=" + role+"\n";
 	}
 
 }

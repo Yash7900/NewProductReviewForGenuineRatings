@@ -37,6 +37,7 @@ public class ReviewDaoImpl implements ReviewDao{
 		return overallRating;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Review> viewAllReviewRating(int productId) {
 		Query query =entityManager.createQuery("Select Review_Rate,Review_Description from Review where Product_Id=?");
 		query.setParameter(1,productId);

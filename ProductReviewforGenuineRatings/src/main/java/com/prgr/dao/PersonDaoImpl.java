@@ -19,7 +19,7 @@ public class PersonDaoImpl implements PersonDao{
 	}
 	public Person addPerson(Person person) {
 		try{
-			if(person.getPersonId()==0 || person.getFirstName()==null || person.getLastName()==null || person.getEmailId()==null || person.getPassword()==null){
+			if(person.getPersonId()==0 && person.getFirstName()==null && person.getLastName()==null && person.getEmailId()==null && person.getPassword()==null){
 				throw new InvalidInputException("Invalid Input entered");
 			}
 		}
@@ -36,7 +36,7 @@ public class PersonDaoImpl implements PersonDao{
 
 public Person updatePerson(Person person) {
 	try{
-		if(person.getPersonId()==0 || person.getFirstName()==null || person.getLastName()==null || person.getEmailId()==null || person.getPassword()==null){
+		if(person.getPersonId()==0 && person.getFirstName()==null && person.getLastName()==null && person.getEmailId()==null && person.getPassword()==null){
 			throw new InvalidInputException("Invalid Input entered");
 		}
 	}
@@ -50,6 +50,7 @@ public Person updatePerson(Person person) {
 		return person;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Person> viewAllPerson() {
 		Query query=entityManager.createQuery("from Person");
 		List<Person> list=query.getResultList();
