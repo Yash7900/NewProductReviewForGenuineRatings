@@ -35,6 +35,15 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	public Review addReviewRating(ReviewTo reviewTo) {
+//		try{
+//			Review review=reviewDao.
+//		if(reviewTo.getUserId()==0&& reviewTo.getProductId()==0){
+//			
+//		}
+//		}
+//		catch(){
+//			
+//		}
 		Review review=new Review(reviewTo.getProductId(),reviewTo.getUserId(),reviewTo.getReviewRate(),reviewTo.getReviewDescrption());
 		return reviewDao.addReviewRating(review);
 	}

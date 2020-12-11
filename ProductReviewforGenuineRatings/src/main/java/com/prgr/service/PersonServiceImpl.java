@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.prgr.dao.PersonDao;
 import com.prgr.dao.PersonDaoImpl;
 import com.prgr.exception.InvalidInputException;
+import com.prgr.exception.UserNotFoundException;
 import com.prgr.model.Person;
 import com.prgr.model.PersonTo;
 
@@ -47,12 +48,12 @@ public class PersonServiceImpl implements PersonService {
 			login=true;
 		}
 		else{
-			throw new Exception();
+			throw new UserNotFoundException("Invalid credentilas");
 		}
 		
 		}
-		catch(Exception ex){
-			logger.debug("Invalid Credentials");
+		catch(UserNotFoundException ex){
+			logger.error("Invalid Credentials");
 			
 		}
 		return login;
@@ -63,16 +64,16 @@ public class PersonServiceImpl implements PersonService {
 		boolean login=false; 
 		try{
 			if(adminUsername.equals("admin")&& adminPassword.equals("12345")){
-				logger.debug("User login successful");  
+				logger.info("User login successful");  
 				login=true;
 			}
 			else{
-				throw new Exception();
+				throw new UserNotFoundException("Invalid credentilas");
 			}
 			
 			}
-			catch(Exception ex){
-				logger.debug("Invalid Credentials");
+			catch(UserNotFoundException ex){
+				logger.error("Invalid Credentials");
 				
 			}
 			return login;

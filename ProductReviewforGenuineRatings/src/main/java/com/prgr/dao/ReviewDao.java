@@ -9,4 +9,5 @@ public interface ReviewDao {
 	public Review deleteReview(int reviewId);
 	public int getOverallRating(int productId);
 	public List<Review> viewAllReviewRating(int productId);
+	public Review reviewExists(int userId,int productId);
 	}

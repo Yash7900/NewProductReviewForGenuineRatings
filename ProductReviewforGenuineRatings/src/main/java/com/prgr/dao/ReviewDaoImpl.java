@@ -31,8 +31,10 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 
 	public int getOverallRating(int productId) {
-		// TODO Auto-generated method stub
-		return 0;
+		Query query=entityManager.createQuery("from Review where Product_Id=?");
+		query.setParameter(1,productId);
+		int overallRating=query.getMaxResults();
+		return overallRating;
 	}
 
 	public List<Review> viewAllReviewRating(int productId) {
@@ -40,6 +42,12 @@ public class ReviewDaoImpl implements ReviewDao{
 		query.setParameter(1,productId);
 		List<Review> list1=query.getResultList();
 		return list1;
+	}
+
+	@Override
+	public Review reviewExists(int userId, int productId) {
+		Review review=entityManager.find(Review.class,userId);
+		return review;
 	}
 
 	}

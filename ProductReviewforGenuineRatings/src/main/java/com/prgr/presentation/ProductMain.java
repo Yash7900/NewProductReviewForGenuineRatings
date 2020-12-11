@@ -165,8 +165,9 @@ public class ProductMain {
 								int feedbackDelete=scanner.nextInt();
 								System.out.println(feedbackService.deleteFeedback(feedbackDelete));
 								System.out.println("Feedback Successfully Deleted");
+								break;
 							}
-							
+							break;
 						case 6:
 							System.out.println("Logged out of system");
 							System.exit(0);

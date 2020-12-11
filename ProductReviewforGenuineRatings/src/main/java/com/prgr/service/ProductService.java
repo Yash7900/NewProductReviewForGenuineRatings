@@ -16,4 +16,5 @@ public interface ProductService {
 	 public Map<Product,List<Review>> viewSingleProductWithReview(int prodId);
 	 public Product viewSingleProduct(int productId);
 	 public List<Product> viewBasedOnCategory(String Category);
+	 public int productRating(int productId);
 }
